@@ -1,0 +1,103 @@
+---
+import logo from "/logo.svg";
+
+
+const tabs = [
+    {
+        id: 1,
+        name: "Home",
+        route: "",
+    },
+    {
+        id: 2,
+        name: "Projects",
+        route: "",
+    },
+    {
+        id: 3,
+        name: "Services",
+        route: "",
+    },
+    {
+        id: 4,
+        name: "Contact Us",
+        route: "",
+    },
+    {
+        id: 5,
+        name: "Login",
+        route: "",
+    },
+];
+
+---
+
+<section>
+    <!-- header -->
+    <header class="h-fit w-full bg-[#4845D2BA] flex justify-between items-center px-20 py-2.5">
+        <!-- contact -->
+        <div class="space-x-5">
+            <div class="items-center gap-2 inline-flex">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-icon lucide-phone"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 20 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
+                <span class="text-white text-xs">+234 076 787 87</span>
+            </div>
+            <div class="items-center gap-2 inline-flex">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=2 stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+                <span class="text-white text-xs">jessicaebenezer@yahoo.com</span>
+            </div>
+        </div>
+
+        <!-- socials -->
+        <div class="flex items-center gap-2">
+            <div class="h-10 w-10 rounded-full border border-white flex justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter-icon lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </div>
+            <div class="h-10 w-10 rounded-full border border-white flex justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram-icon lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </div>
+            <div class="h-10 w-10 rounded-full border border-white flex justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook-icon lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </div>
+            <div class="h-10 w-10 rounded-full border border-white flex justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin-icon lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+        </div>
+    </header>
+
+    <nav class="h-fit w-full px-32 py-3 flex justify-between items-center">
+        <!-- logo -->
+        <div class="flex items-center gap-2">
+            <img src="/logo.svg" alt="Medicate 2025.">
+            <span class="text-2xl font-bold">Medicate</span>
+        </div>
+        <div class="flex gap-5" id="tab-container">
+            {tabs.map(tab => (
+                <div
+                class="tab-item p-2.5 rounded-lg h-[40px] w-[104px] flex justify-center items-center hover:cursor-pointer"
+                data-tab-id={tab.id}
+                >
+                <p class="text-sm">{tab.name}</p>
+                </div>
+            ))}
+            </div>
+        <div class="p-2.5 rounded-lg h-[40px] w-[184px] flex justify-center items-center hover:cursor-pointer bg-[#7977DE] text-white">
+            <p class="text-sm">Book an appointment</p>
+        </div>
+    </nav>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".tab-item");
+    tabs[0].classList.add("bg-[#7977DE]", "text-white");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        // Remove active class from all tabs
+        tabs.forEach(t => t.classList.remove("bg-[#7977DE]", "text-white", "hover:bg-gray-50"));
+        // Add active class to clicked tab
+        tab.classList.add("bg-[#7977DE]", "text-white",);
+      });
+    });
+  });
+</script>
