@@ -1,0 +1,83 @@
+<!-- Modal Component -->
+<div id="modal" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-lg p-6 w-full max-w-4xl relative">
+    <!-- Close Button -->
+    <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-black text-xl">✖</button>
+
+    <!-- Form -->
+    <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Left Column -->
+      <div class="flex flex-col gap-4">
+        <div>
+          <label class="block text-sm font-medium">Name</label>
+          <input type="text" placeholder="Value" class="border rounded px-3 py-2 w-full text-sm" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Surname</label>
+          <input type="text" placeholder="Value" class="border rounded px-3 py-2 w-full text-sm" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Email</label>
+          <input type="email" placeholder="Value" class="border rounded px-3 py-2 w-full text-sm" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Reason For Visit</label>
+          <textarea placeholder="Value" class="border rounded px-3 py-2 w-full text-sm"></textarea>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="flex flex-col gap-4">
+        <div>
+          <label class="block text-sm font-medium">Select Doctor</label>
+          <input type="text" placeholder="Value" class="border rounded px-3 py-2 w-full text-sm" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Appointment Date</label>
+          <input type="text" placeholder="Value" class="border rounded px-3 py-2 w-full text-sm" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Time Slot</label>
+          <input type="text" placeholder="Value" class="border rounded px-3 py-2 w-full text-sm" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Additional Information</label>
+          <textarea placeholder="Value" class="border rounded px-3 py-2 w-full text-sm"></textarea>
+        </div>
+      </div>
+    </form>
+
+    <!-- Buttons -->
+    <div class="flex flex-col items-center mt-6 gap-3">
+      <button class="bg-[#A293F8] text-white px-6 py-2 rounded w-40 text-sm">Reminder</button>
+      <button class="bg-[#A293F8] text-white px-6 py-2 rounded w-52 text-sm">Book Appointment</button>
+    </div>
+  </div>
+</div>
+
+<!-- Script to Toggle Modal -->
+<script>
+  const modal = document.getElementById("modal");
+  const openBtn = document.getElementById("openModal");
+  const closeBtn = document.getElementById("closeModal");
+
+  function openModal() {
+    modal?.classList.remove("hidden");
+  }
+
+  function closeModal() {
+    modal?.classList.add("hidden");
+  }
+
+  openBtn?.addEventListener("click", openModal);
+  closeBtn?.addEventListener("click", closeModal);
+  modal?.addEventListener("click", function (e) {
+    if (e.target === modal) closeModal();
+  });
+</script>

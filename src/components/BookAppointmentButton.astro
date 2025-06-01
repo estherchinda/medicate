@@ -1,0 +1,90 @@
+---
+const { text = "Book an appointment" } = Astro.props;
+---
+
+<!-- Button to open modal -->
+<button id="openModalBtn"
+  class="p-2.5 rounded-lg hover:cursor-pointer h-[40px] w-full flex justify-center items-center bg-[#7977DE] hover:bg-[#6c6ad4] text-white transition text-sm"
+>
+  { text }
+</button>
+
+<!-- Modal -->
+<div id="appointmentModal" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 hidden px-5 md:px-10 lg:px-20">
+  <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6 relative overflow-y-auto h-[460px]">
+    
+    <!-- Close button -->
+    <button id="closeModalBtn" class="absolute top-3 right-3 text-gray-400 hover:text-black text-2xl font-bold">
+      &times;
+    </button>
+
+    <!-- Modal Content -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="flex flex-col gap-4">
+        <div>
+          <label class="text-sm font-medium">Name</label>
+          <input class="w-full border border-gray-400 px-4 py-2 rounded" placeholder="Value" />
+        </div>
+        <div>
+          <label class="text-sm font-medium">Surname</label>
+          <input class="w-full border border-gray-400 px-4 py-2 rounded" placeholder="Value" />
+        </div>
+        <div>
+          <label class="text-sm font-medium">Email</label>
+          <input class="w-full border border-gray-400 px-4 py-2 rounded" placeholder="Value" />
+        </div>
+        <div>
+          <label class="text-sm font-medium">Reason For Visit</label>
+          <textarea class="w-full border border-gray-400 px-4 py-2 rounded" placeholder="Value"></textarea>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <div>
+          <label class="text-sm font-medium">Select Doctor</label>
+          <input class="w-full border border-gray-400 px-4 py-2 rounded" placeholder="Value" />
+        </div>
+        <div>
+          <label class="text-sm font-medium">Appointment Date</label>
+          <input class="w-full border border-gray-400 px-4 py-2 rounded" placeholder="Value" />
+        </div>
+        <div>
+          <label class="text-sm font-medium">Time Slot</label>
+          <input class="w-full border border-gray-400 px-4 py-2 rounded" placeholder="Value" />
+        </div>
+        <div>
+          <label class="text-sm font-medium">Additional Information</label>
+          <textarea class="w-full border border-gray-400 px-4 py-2 rounded" placeholder="Value"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex flex-col items-center gap-3 mt-6">
+      <!-- <button class="bg-[#9C92E7] text-white px-6 py-2 rounded w-40">Reminder</button> -->
+      <button class="bg-[#7977DE] text-white px-6 py-2 rounded w-60">Book appointment</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  const modal = document.getElementById('appointmentModal');
+  const openBtn = document.getElementById('openModalBtn');
+  const closeBtn = document.getElementById('closeModalBtn');
+
+  openBtn?.addEventListener('click', () => {
+    modal?.classList.remove('hidden');
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    modal?.classList.add('hidden');
+  });
+
+  // Optional: close when clicking outside modal content
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal?.classList.add('hidden');
+    }
+  });
+</script>

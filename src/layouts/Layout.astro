@@ -6,6 +6,7 @@ import Header from "../components/Header.astro";
 const { 
 	title = "Medicate", 
 	description = "A simple medication reminder app",
+	activePage
 	} = Astro.props;
 ---
 
@@ -20,7 +21,7 @@ const {
 		<title>{ title }</title>
 	</head>
 	<body>
-		<Header/>
+		<Header activeTab={activePage}/>
 		<slot />
 	</body>
 </html>
