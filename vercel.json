@@ -1,9 +1,0 @@
-{
-  "buildCommand": "npm run build", 
-  "framework": "astro",
-  "functions": {
-    "app/server.js": {
-      "runtime": "nodejs20.x"
-    }
-  }
-}
